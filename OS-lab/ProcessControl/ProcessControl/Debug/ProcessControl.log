@@ -1,0 +1,5 @@
+﻿  main.cpp
+d:\users\code\processcontrol\processcontrol\main.cpp(374): warning C4018: “<”: 有符号/无符号不匹配
+d:\users\code\processcontrol\processcontrol\main.cpp(385): warning C4018: “<”: 有符号/无符号不匹配
+d:\users\code\processcontrol\processcontrol\main.cpp(407): warning C4018: “<”: 有符号/无符号不匹配
+  ProcessControl.vcxproj -> D:\Users\code\ProcessControl\Debug\ProcessControl.exe

@@ -1,0 +1,21 @@
+15.
+	1.10025
+	2.25
+	3.2548
+	4.3
+	5.103
+	6.-1
+	7.1
+	8.3
+
+16.
+	1.mov ax,10
+	2.mov bl,10
+	3.mov cl,1
+
+17.
+	1.mov ax,type FLDB	;(ax)=1
+	2.mov ax,type TABLEA	;(ax)=2
+	3.mov cx,LENGTH TABLEA	;(ax)=20
+	4.mov dx,size TABLEA	;(ax)=40
+	5.mov cx,length tableb	;(ax)=1

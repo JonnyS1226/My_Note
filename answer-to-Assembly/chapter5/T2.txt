@@ -1,0 +1,18 @@
+code segment
+	assume cs:code
+start:
+	mov ah,01h
+	int 21h			;01号中断获取输入字母在al中
+	cmp al,'a'
+	jb exit
+	cmp al,'z'
+	ja exit
+	sub al,20h
+	mov dl,al		;02号中断输出字符，字符的ascii要放在dl中
+	mov ah,02h
+	int 21h
+exit:
+	mov ah,4ch
+	int 21h
+code ends
+	end start

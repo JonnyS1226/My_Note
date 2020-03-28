@@ -1,0 +1,30 @@
+data segment
+	buff db 10 dup(?)
+	key db 7,5,9,1,3,6,8,0,2,4
+	mess db 'input:',0ah,0dh,'$'
+data ends
+code segment
+	assume cs:code,ds:data
+start:
+	mov ax,data
+	mov ds,ax
+	lea si,buff
+input:
+	lea dx,mess
+	mov ah,9
+	int 21h
+	mov ah,1
+	int 21h
+	cmp al,0dh	;判断回车
+	jz exit
+	sub al,30h	;变为对应数字
+	lea bx,key
+	xlat	;(al)<-(bx+al)
+	mov [si],al
+	inc si
+	loop input
+exit:
+	mov ah,4ch
+	int 21h
+code ends
+	end start

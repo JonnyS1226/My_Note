@@ -1,0 +1,9 @@
+5.
+(1):5678h
+(2):0035h
+
+6.
+	mov bx,offset TABLE	;bx中存放TABLE偏移地址0
+	add bx,ENTRY		;bx中存放4
+	mov ax,[bx]			;(ax)=30
+(ax)=30

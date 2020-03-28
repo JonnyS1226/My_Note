@@ -1,0 +1,16 @@
+14.
+	1.	xor bx,value		;(bx)=9dh
+	2.	and bx,value		;(bx)=60h
+	3.	or bx,value			;(bx)=0fdh
+	4.	xor bx,0ffh			;(bx)=0ah
+	5.	and bx,0			;(bx)=0
+	6.	test bx,01h			;(bx)=0f5h
+
+15.
+	mov cl,04h
+	shl dx,cl		;dx左移四位，低四位全0
+	mov bl,ah		;保存ah
+	shl ax,cl		;ax左移四位
+	shr bl,cl		;bl右移四位，此时高4位为0，低四位为原来ah移丢的四位
+	or dl,bl        ;拼接
+	实现功能：dx，ax双字逻辑左移四位

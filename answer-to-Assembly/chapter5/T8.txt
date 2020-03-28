@@ -1,0 +1,51 @@
+data segment
+	table db 100 dup(?)
+	key db 95
+	len db 100
+data ends
+code segment
+	assume cs:code,ds:data
+start:
+	mov ax,data
+	mov ds,ax
+	mov bl,100
+	mov cx,100
+	lea dx,table
+initial:		;初始化，便于测试
+	mov [dx],bl
+	inc dx
+	sub bl,2
+	loop initial
+next:
+	lea bx,table
+	mov al,key
+	mov cx,100
+comp:
+	cmp [bx],al
+	jz exit
+	inc bx
+	loop comp
+	lea bx,key
+	dec bx	;指向table尾，从后往前插入便于移动
+	mov al,key
+continue:
+	cmp [bx],al
+	jl	tmpinsert	
+	inc bx
+	mov [bx],al
+	inc len
+	jmp exit
+tmpinsert:
+	mov ah,[bx]
+	mov [bx+1],ah	;依次向后移动一位
+	dec bx			;指针前移
+	cmp bx,0
+	jge continue	;还没到头
+	inc bx			;将指针指回到要插入的地方
+	mov [bx],al
+	inc len
+exit:
+	mov ah,4ch
+	int 21h
+code ends
+	end start

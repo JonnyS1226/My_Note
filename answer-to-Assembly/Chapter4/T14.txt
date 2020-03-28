@@ -1,0 +1,31 @@
+data segment
+	N db 5
+	DATA_LIST dw -1,0,2,5,4
+	MAX dw ?
+	MIN dw ?
+data ends
+code segment
+	assume cs:code,ds:data
+start:
+	mov ax,data
+	mov ds,ax
+	lea si,DATA_LIST
+	mov ax,[si]	;用于最大值
+	mov bx,[si]	;用于最小值
+	mov cx,5
+while:
+	cmp ax,[si]
+	jge judge
+	mov ax,[si]
+	cmp bx,[si]
+	jle judge
+	mov bx,[si]
+judge:
+	add si,2
+	loop while
+	mov MAX,ax
+	mov MIN,bx
+	mov ah,4ch
+	int 21h
+code ends
+	end start

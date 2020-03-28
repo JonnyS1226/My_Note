@@ -1,0 +1,5 @@
+1.mov ax,offset LNAME
+
+2.mov si,word ptr CODE_LIST
+
+3.length EQU $-CODE_LIST

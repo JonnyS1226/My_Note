@@ -1,0 +1,10 @@
+not ax
+not dx
+add ax,1	;cf=1
+adc dx,0	;加上cf值
+
+--------------
+;或者
+neg ax
+not dx
+adc dx,0

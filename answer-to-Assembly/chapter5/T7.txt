@@ -1,0 +1,42 @@
+data segment
+	eng db 'sunny in sunday afternoon','$'
+	key db 'sun'
+	mess db 'sun: ','$'
+	cnt db 0
+data ends
+code segment
+	assume cs:code,ds:data
+start:
+	mov ax,data
+	mov ds,ax
+	mov es,ax	;用于目标串段地址
+	lea dx,key
+	sub dx,3	;用这种方式得到eng长度
+	lea di,eng
+	lea bx,eng	;长度游标
+compare:
+	lea si,key
+	mov di,bx	;每次是移动过的串位置给di，若用lea就是每次都从头开始了
+	cld
+	mov cx,3
+	repe cmpsb	;相等重复
+	jnz next
+	inc cnt		;记载sun的数目
+	add bx,2	;匹配了一个sun，长度游标加2
+next:
+	inc bx
+	cmp bx,dx
+	jbe compare
+disp:
+	lea dx,mess
+	mov ah,9
+	int 21h
+	mov dl,cnt
+	add dl,30h
+	mov ah,2
+	int 21h
+	mov ah,4ch
+	int 21h
+code ends
+	end start
+	

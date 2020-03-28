@@ -1,0 +1,23 @@
+data segment
+	first dw 1234h
+	second dw 5678h
+	third db 3 dup(?)
+data ends
+code segment
+	assume cs:code,ds:data
+start:
+	mov ax,data
+	mov ds,ax
+	mov ax,first
+	mov bx,second
+	add al,bl
+	daa
+	mov third al
+	mov al,ah
+	adc al,bh
+	daa
+	mov third+1,al
+	mov ah,4ch
+	int 21h
+code ends
+	end start

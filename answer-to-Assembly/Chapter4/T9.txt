@@ -1,0 +1,4 @@
+dw 5150h
+db 50h,51h
+db 'PQ'
+dw 'QP'

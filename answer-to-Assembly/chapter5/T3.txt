@@ -1,0 +1,80 @@
+data segment
+	m dw 9 dup(1),11 dup(-2)
+	p dw 20 dup(?)
+	n dw 20 dup(?)
+	c1 dw 0
+	c2 dw 0
+	mess1 db 'positive:',13,10,'$'
+	mess2 db 'negtive:',13,10,'$'
+data ends
+code segment
+	assume cs:code,ds:data
+start:
+	mov ax,data
+	mov ds,ax
+	
+	lea bx,m
+	lea si,p
+	lea di,n
+	mov cx,20
+next:
+	mov ax,[bx]
+	cmp ax,0
+	jg positive
+	jl negtive
+	jmp aa
+positive:
+	mov [si],ax
+	inc c1
+	add si,2
+	jmp aa
+negtive:
+	mov [di],ax
+	inc c2
+	add di,2
+aa:
+	add bx,2
+	loop next
+	lea dx,mess1
+	mov ah,9
+	int 21h
+	mov ax,c1
+	call disp
+	call crlf
+	lea dx,mess2
+	mov ah,9
+	int 21h
+	mov ax,c2
+	call disp
+	mov ah,4ch
+	int 21h
+disp proc near	
+	push dx
+	mov dx,0
+	mov bx,10
+	div bx	
+	push dx
+	cmp ax,0
+	jz output
+	call disp
+output:
+	pop dx
+	add dx,30h
+	mov ah,2
+	int 21h	
+	pop dx
+	
+	ret
+disp endp	
+	
+crlf proc near
+	mov dl,13
+	mov ah,2
+	int 21h
+	mov dl,10
+	mov ah,2
+	int 21h
+	ret
+crlf endp
+code ends
+end start

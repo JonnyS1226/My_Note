@@ -1,0 +1,13 @@
+	mov ax,[A]
+	mov dx,[A+2]
+	test dx,80h	;判断首位为1还是0
+	jnz nega
+	jmp exit
+nega:
+	not ax
+	not dx
+	add ax,1
+	adc dx,0
+exit:
+	mov [B],ax
+	mov [B+2],dx

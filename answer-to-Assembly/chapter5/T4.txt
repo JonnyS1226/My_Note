@@ -1,0 +1,40 @@
+data segment
+	array dw 100 dup(?)
+data ends
+code segment
+	assume cs:code,ds:data
+start:
+	mov ax,data
+	mov ds,ax
+	lea si,array
+	mov cx,100	;循环次数
+	mov bx,100	;为了赋值测试用
+;给data段array赋值来测试
+initial:
+	mov [si],bx
+	dec bx
+	add si,2
+	loop initial
+	mov cx,100
+isodd:
+	add bx,2
+	mov ax,[bx]	;bx+2后是array首地址
+	test ax,1	;判断是否是奇数
+	loopnz isodd	;该指令要求ZF=0，CX内不等于0才跳转
+	jcxz exit		;全是奇数
+next:
+	mov dx,[bx]
+	test dx,1	;判断是否是奇数
+	jnz lop     
+	cmp ax,dx
+	jle lop
+	mov ax,dx
+lop:
+	add bx,2
+	loop next
+	jmp exit
+exit:
+	mov ah,4ch
+	int 21h
+code ends
+	end start

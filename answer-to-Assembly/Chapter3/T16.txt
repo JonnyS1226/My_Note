@@ -1,0 +1,7 @@
+;dx，ax双字右移四位
+	mov cl,4
+	shr ax,cl
+	mov bl,dl	;保存dl
+	shr dx,cl
+	shl bl,cl
+	or ah,bl

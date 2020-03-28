@@ -1,0 +1,61 @@
+data segment
+	datab db 80 dup(?)
+	g9 db 0
+	g8 db 0
+	g7 db 0
+	g6 db 0
+	gb6  db 0
+	aver db 0
+data ends
+code segment
+	assume cs:code,ds:data
+start:
+	mov ax,data
+	mov ds,ax
+initial:	初始化成绩来测试
+	mov cx,80
+	mov bx,100
+	lea si,datab
+init:
+	mov [si],bx
+	dec bx
+	inc si
+	loop init
+	lea di,datab
+	mov cx,80
+judge:
+	mov al,[di]
+	add bl,al
+	adc bh,0	;保存总成绩
+	cmp al,90
+	jb s8
+	inc g9
+	jmp next
+s8:
+	cmp al,80
+	jb s7
+	inc g8
+	jmp next
+s7:
+	cmp al,70
+	jb s6
+	inc g7
+	jmp next
+s6:
+	cmp al,60
+	jb b6
+	inc g6
+	jmp next
+b6:
+	inc gb6
+next:
+	inc di
+	loop judge
+	mov ax,bx	;保存总成绩
+	mov bl,80
+	div bl
+	mov aver,al
+	mov ah,4ch
+	int 21h
+code ends
+	end start

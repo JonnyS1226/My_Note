@@ -1,0 +1,9 @@
+assume cs:code
+code segment
+start:
+	mov bx,4b68h
+	add word ptr ds:[0137h],bx
+	mov ax,4c00h
+	int 21h
+code ends
+end start

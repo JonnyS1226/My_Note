@@ -1,0 +1,2 @@
+mov dh,CSTRING
+mov dl,CSTRING+6

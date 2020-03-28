@@ -1,0 +1,10 @@
+assume cs:code
+code segment
+start:
+	mov bx,0003h	
+	mov si,0011h
+	add cl,ds:[bx+si]
+	mov ax,4c00h
+	int 21h
+code ends
+	end start

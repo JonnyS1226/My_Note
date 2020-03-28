@@ -1,0 +1,31 @@
+data segment
+	A db 1
+	B db 2
+	C db 3
+	D db ?
+data ends
+code segment
+	assume cs:code,ds:data
+start:
+	mov ax,ds
+	mov ds,ax
+	cmp A,0
+	jz clr
+	cmp B,0
+	jz clr
+	cmp C,0
+	jz clr
+	jmp exit
+clr:
+	mov A,0
+	mov B,0
+	mov C,0
+exit:
+	mov al,A
+	add al,B
+	add al,C
+	mov D,al
+	mov ah,4ch
+	int 21h
+code ends
+	end start

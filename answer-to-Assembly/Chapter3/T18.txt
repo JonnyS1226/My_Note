@@ -1,0 +1,6 @@
+lea di,LIST
+cld
+mov al,'B'
+repe scasb
+jnz NotFound
+jz Found

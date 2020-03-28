@@ -1,0 +1,38 @@
+code segment
+	assume cs:code
+start:
+	mov bx,0	;存放四位16进制数
+	mov ch,4	;记录输了几个十六进制数
+input:
+	mov ah,1
+	int 21h
+	cmp al,'0'
+	jb input	;输入有误，重新输入
+	cmp al,'9'
+	ja AF
+	sub al,30h	;把0-9 ascii转换为对应数
+	jmp next
+AF:
+	cmp al,'A'
+	jb input
+	cmp al,'F'
+	ja input
+	sub al,37h	;转换为对应16进制数
+next:
+	mov cl,4	
+	rol bx,cl	;将之前输入的前移
+	or bl,al	;此时bl低四位存放了一个十六进制数转换的二进制数
+	dec ch
+	jnz input
+	mov cx,16
+disp:
+	mov dl,0
+	shl bx,1	;最高位移到cf
+	adc dl,0	;把cf加上，也就是最高位
+	add dl,30h	;把对应数转换为ascii
+	mov ah,2
+	loop disp
+	mov ah,4ch
+	int 21h
+code ends
+	end start

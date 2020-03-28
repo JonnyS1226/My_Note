@@ -1,0 +1,4 @@
+mov bx,[3000h]	;取偏移地址
+mov ax,[3002h]	
+mov es,ax		;取段地址
+mov ax,es:[bx]

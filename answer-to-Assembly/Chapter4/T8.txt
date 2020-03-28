@@ -1,0 +1,42 @@
+data segment
+	FIRST DB 90H,5FH,6EH,69H
+	SECOND DB 5 DUP(?)
+	THIRD DB 5 DUP(?)
+	FORTH DB 5 DUP(?)
+data ends
+code segment 
+	assume cs:code,ds:data
+start:
+	mov ax,data
+	mov ds,ax
+	lea si,FIRST
+	lea di,SECOND
+	mov ax,[si]
+	mov dx,[si+2]
+	push ax
+	push dx	;保存寄存器，为了后面求补用
+	mov cl,2
+	rol dx,cl
+	mov bl,dl	
+	and bl,3	;相当于高字的最右边的两位保存下来
+	mov second+4,bl
+	and dl,0fch	;把高字最右边两位归0
+	rol ax,cl
+	mov bl,al
+	and bl,3
+	or dl,bl	
+	and al,0fch
+	mov word ptr SECOND,ax
+	mov word ptr SECOND+2,dx
+	pop dx
+	pop ax
+	not ax
+	not dx
+	add ax,1
+	adc dx,0
+	mov word ptr FORTH,ax
+	mov word ptr FORTH+2,dx
+	mov ah,4ch
+	int 21h
+code ends
+	end start

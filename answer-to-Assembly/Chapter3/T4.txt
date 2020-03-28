@@ -1,0 +1,5 @@
+1.	mov ax,[bx+12]	;取0
+	mov ZIAREA,ax
+
+2.	mov ax,ARRAY[bx]
+	mov ZIAREA,ax

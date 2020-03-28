@@ -1,0 +1,37 @@
+;奇校验让主体数据加上校验位中的“1”的个数保持为奇数。 ;偶校验:让主体数据加上校验位中的“1”的个数保持为偶数。
+code segment	
+	assume cs:code,ds:data
+start:
+	mov ax,8000h
+	mov ds,ax
+	mov cx,256
+	mov si,0
+next:
+	mov al,[si]
+	call evencheck
+	mov [si],al
+	inc si
+	loop next
+	mov ah,4ch
+	int 21h
+
+evencheck proc near
+	push cx
+	push dx
+	mov cx,7
+	mov dl,0
+	mov dh,al
+cnt1:
+	shr dh,1
+	jnc do	;移出来的是0则跳转
+	inc dl
+zero:
+	loop cnt1
+	and dl,1	;奇数个1则dl最后为1，偶数个1则dl为0
+	ror dl,1	;放到最高位
+	or al,dl	;写回到al中
+	pop dx
+	pop cx
+	ret
+code ends
+	end start

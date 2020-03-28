@@ -1,0 +1,22 @@
+code segment
+	assume cs:code
+start:
+	mov ax,0ffffh	;随意赋值用于测试
+	mov dl,0
+	mov cx,8
+compare:
+	test ax,03h
+	jnz noe
+	inc dl
+noe:
+	ror ax,1
+	ror ax,1
+	loop compare
+	add dl,30h	;将计数值转换为ascii
+	mov ah,2
+	int 21h
+exit:
+	mov ah,4ch
+	int 21h
+code ends
+end start

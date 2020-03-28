@@ -1,0 +1,27 @@
+code segment
+	assume cs:code
+start:
+	mov ax,4000h
+	mov ds,ax
+	mov es,ax
+	mov cx,4000h	;16KB次
+	;用于测试的初始化
+	mov al,41h
+	cld
+	mov di,0
+	rep stosb
+	;下面是正式的程序
+	mov dx,0
+	mov si,0
+judge:
+	cmp byte ptr[si],'A'
+	jnz no
+	inc dx	;计数加一
+	inc si
+no:
+	inc si
+	loop judge
+	mov ah,4ch
+	int 21h
+code ends
+	end start

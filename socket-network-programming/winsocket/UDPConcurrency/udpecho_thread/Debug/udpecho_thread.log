@@ -1,0 +1,3 @@
+﻿  server.cpp
+d:\users\code\winsocket\udpecho_thread\udpecho_thread\server.cpp(110): warning C4101: “temp”: 未引用的局部变量
+  udpecho_thread.vcxproj -> D:\Users\code\winsocket\udpecho_thread\Debug\server.exe

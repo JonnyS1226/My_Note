@@ -26,4 +26,4 @@
 
 ## Golang学习
 
-[Golang](https://github.com/JonnyS1226/My_Note/tree/master/golang)
+[Golang](https://github.com/JonnyS1226/My_Note/tree/master/Golang)

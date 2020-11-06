@@ -7,21 +7,21 @@
 
 [SOCKET通信实验(c++)](https://github.com/JonnyS1226/My_Note/tree/master/socket-network-programming)
 
-[S/KEY实现动态口令实现(python+golang)]()
+[S/KEY实现动态口令实现(python+golang)](https://github.com/JonnyS1226/My_Note/tree/master/s_key_lab)
 
-[webmail监听(libnids + libpcap + libnet)]()
+[webmail监听(libnids + libpcap + libnet)](https://github.com/JonnyS1226/My_Note/tree/master/webmail)
 
-[漏洞复现]()
+[漏洞复现]()（待办）
 
-[软件破解与栈溢出实验]()
+[软件破解与栈溢出实验]()（待办）
 
-[密码学实验AES+RSA(C++)]()
+[密码学实验AES+RSA(C++)]()（待办）
 
 
 
-## 部分课设与课程项目
+## 部分课设与课程项目(待办)
 
-[电子邮件保密通信系统(python)]()
+[电子邮件保密通信系统(python)](https://github.com/JonnyS1226/My_Note/tree/master/pgp_lab)
 
 [宾馆管理系统(python)]()
 

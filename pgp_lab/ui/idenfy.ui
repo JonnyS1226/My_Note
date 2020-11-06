@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>384</width>
+    <height>263</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">QListWidget, QListView, QTreeWidget, QTreeView,QFrame {
+    outline: 0px;
+}
+QLabel{
+color:white;
+background:transparent;
+}
+#head
+{
+background:white;
+border-radius:30px;
+}
+#head_2
+{
+background:#CCFFCC;
+border:1px solid;
+border-color:#CCFFCC;
+border-radius:60px;
+}
+#Search
+{
+border-radius:5px;
+background:#293846;
+border:0.5px solid;
+border-color:white;
+
+}
+QListWidget::item
+{
+height:60;
+background-color:#293846;
+}
+#frame
+{
+background-color:#2f4050
+
+}
+/*被选中时的背景颜色和左边框颜色*/
+QListWidget::item:selected {
+    background: rgb(52, 52, 52);
+    border-left: 2px solid rgb(9, 187, 7);
+}
+/*鼠标悬停颜色*/
+HistoryPanel::item:hover {
+    background: rgb(52, 52, 52);
+}
+/*右侧的层叠窗口的背景颜色*/
+QStackedWidget {
+    background: white;
+}
+/*模拟的页面*/
+#frame &gt; QLabel
+{
+color:white;
+}
+#frame_2
+{
+background-color:#CCFFCC;
+}
+#page_2 &gt; QLineEdit,QDateEdit
+{
+border-radius:5px;
+background:#FFFFFF;
+border:1px solid;
+border-color:#6699CC;
+}
+QLineEdit
+{
+border-radius:5px;
+background:#FFFFFF;
+border:1px solid;
+border-color:#6699CC;
+}
+#centralwidget{
+border-image:url(D:/img/login3.jpg) strectch；
+}
+QPushButton{
+background:rgb(138, 255, 252);
+border-radius:15px;
+}
+QPushButton:hover{
+background:rgb(248, 255, 180);
+border-radius:15px;
+background:#49ebff;
+}
+
+
+</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>70</x>
+      <y>50</y>
+      <width>61</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>邮箱账号：</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_2">
+    <property name="geometry">
+     <rect>
+      <x>70</x>
+      <y>90</y>
+      <width>61</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>邮箱密码：</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="lineEdit">
+    <property name="geometry">
+     <rect>
+      <x>140</x>
+      <y>60</y>
+      <width>171</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="lineEdit_2">
+    <property name="geometry">
+     <rect>
+      <x>140</x>
+      <y>100</y>
+      <width>171</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton">
+    <property name="geometry">
+     <rect>
+      <x>100</x>
+      <y>160</y>
+      <width>71</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true"/>
+    </property>
+    <property name="text">
+     <string>登录</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_2">
+    <property name="geometry">
+     <rect>
+      <x>230</x>
+      <y>160</y>
+      <width>71</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true"/>
+    </property>
+    <property name="text">
+     <string>取消</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_3">
+    <property name="geometry">
+     <rect>
+      <x>70</x>
+      <y>130</y>
+      <width>231</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>* 若账号未注册，会自动注册</string>
+    </property>
+   </widget>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

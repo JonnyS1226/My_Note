@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table,table tr th, table tr td { border:1px solid #0094ff; }
+        table { width: 200px; min-height: 25px; line-height: 25px; border-collapse: collapse;}   
+    </style>
+</head>
+<body>
+    <center>
+        <table class="table table-bordered table-hover" style="width:700px;font-size: 20px" margin="auto">
+            <tr>
+                <td colspan="2" style="font-size:20px;text-align:center;padding: 8px; line-height: 1.42857; vertical-align: top; border-top-width: 1px; border-top-color: rgb(221, 221, 221); background-color: #294878;color:#fff" >
+                    <h3><strong>每周值得关注的词！</strong></h3>
+                </td>
+            </tr>   
+            <tr>
+                <td colspan="2">
+                    <div>下午好呀 宝贝 ❤️！</div>
+                    <div><strong>本次周期是{{start_date}} 至 {{end_date}}</strong></div>
+                </td>
+            </tr>
+
+            <tr>
+                <td colspan="2" style="font-size:16px;padding: 8px; line-height: 1.42857; vertical-align: top; border-top-width: 1px; border-top-color: rgb(221, 221, 221); background-color: #608DCE;color:#fff">
+                    <strong>本周单词</strong>
+                </td>
+            </tr>   
+            
+
+            
+            <tr style="text-align: center;">
+                <td><strong>单词: 释义</strong></td>
+<!--                <td><strong>释义</strong></td> -->
+                <td><strong>单词: 释义</strong></td>
+<!--                <td><strong>释义</strong></td> -->
+            </tr>
+            {% for word_item in words %}
+            <tr style="text-align: center;">
+                <td>{{word_item.word1}}:&nbsp;&nbsp;{{word_item.meaning1}}</td>
+<!--                <td>{{word_item.meaning1}}</td> -->
+                <td>{{word_item.word2}}:&nbsp;&nbsp;{{word_item.meaning2}}</td>
+<!--                <td>{{word_item.meaning2}}</td> -->
+            </tr>
+            {% endfor %}
+            <tr>   
+                <td colspan="2" style="font-size:16px;padding: 8px; line-height: 1.42857; vertical-align: top; border-top-width: 1px; border-top-color: rgb(221, 221, 221); background-color: #608DCE;color:#fff">
+                    <strong>全部单词</strong>
+                </td>
+            </tr>
+
+
+            <tr style="text-align: center;">
+                <td><strong>单词: 释义</strong></td>
+                <td><strong>单词: 释义</strong></td>
+            </tr>
+            
+            {% for word_item in words_all %}
+            <tr style="text-align: center;">
+                <td>{{word_item.word1}}:&nbsp;&nbsp;{{word_item.meaning1}}</td>
+                <td>{{word_item.word2}}:&nbsp;&nbsp;{{word_item.meaning2}}</td>
+            </tr>
+            {% endfor %}
+
+            <tr>
+                <td colspan="2" style="font-size:16px;padding: 8px; line-height: 1.42857; vertical-align: top; border-top-width: 1px; border-top-color: rgb(221, 221, 221); background-color: #608DCE;color:#fff">
+                    <strong>一些长得像的单词</strong>
+                </td>
+            </tr>
+
+            {% for word_item_str in words_similar %}
+            <tr>
+                <td colspan="2">
+                    <div>{{word_item_str}}</div>
+                </td>
+            </tr>
+            {% endfor %}
+
+
+            <tr>
+                <td colspan="2" style="font-size:16px;padding: 8px; line-height: 1.42857; vertical-align: top; border-top-width: 1px; border-top-color: rgb(221, 221, 221); background-color: #608DCE;color:#fff">
+                </td>
+            </tr>
+
+            <tr>
+                <td colspan="2" >
+                    <div>一封来自定时邮件程序的爱意</div>
+                    <div style="color:#F00">请勿回复 手动狗头</div>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" style="text-align:right;width:80%;padding: 1px;line-height: 1.42857; vertical-align: top; border-top-width: 1px; border-top-color: rgb(221, 221, 221); background-color: #294878;color:#fff" >
+                    <h4>"喜欢你不是三分钟热度，是蓄谋已久后的深思熟虑"</h4>
+                </td>
+            </tr>  
+            
+        </table>
+    </center>
+</body>
+</html>

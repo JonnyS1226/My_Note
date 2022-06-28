@@ -25,8 +25,7 @@
 
 [CPU设计课设(verilog)]()（待办）
 
-[基于JPEG-LS的图像无损压缩加密算法研究与实现](https://github.com/JonnyS1226/My_Note/tree/master/jpeg-ls)(较复杂，暂未写文档)
-
+[基于JPEG-LS的图像无损压缩加密算法研究与实现](https://github.com/JonnyS1226/My_Note/tree/master/jpeg-ls)
 
 
 
